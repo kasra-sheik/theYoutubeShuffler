@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18B8B6DE65DAC7A5705B5E5E /* Pods_TheYouTubeShuffler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4769178A6CC8A882D1FEC4 /* Pods_TheYouTubeShuffler.framework */; };
+		CA1F41631D3DC983001FF557 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1F41621D3DC983001FF557 /* Alamofire.framework */; };
+		CA1F41651D3DCA69001FF557 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CA1F41641D3DCA69001FF557 /* Podfile */; };
+		CA8B438D1D2E32EB00419E4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8B438C1D2E32EA00419E4D /* AppDelegate.swift */; };
+		CA8B43921D2E32EB00419E4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8B43901D2E32EB00419E4D /* Main.storyboard */; };
+		CA8B43951D2E32EB00419E4D /* TheYouTubeShuffler.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA8B43931D2E32EB00419E4D /* TheYouTubeShuffler.xcdatamodeld */; };
+		CA8B43971D2E32EB00419E4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA8B43961D2E32EB00419E4D /* Assets.xcassets */; };
+		CA8B439A1D2E32EB00419E4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8B43981D2E32EB00419E4D /* LaunchScreen.storyboard */; };
+		CACD82521D3975A000A510AD /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD82511D3975A000A510AD /* CategoriesViewController.swift */; };
+		CACD82541D397ED400A510AD /* PlayVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD82531D397ED400A510AD /* PlayVideoViewController.swift */; };
+		CACD82561D399E0100A510AD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CACD82551D399E0100A510AD /* libsqlite3.tbd */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4B4769178A6CC8A882D1FEC4 /* Pods_TheYouTubeShuffler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheYouTubeShuffler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95BD30F0532CE8A7FA3B1DD3 /* Pods-TheYouTubeShuffler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheYouTubeShuffler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheYouTubeShuffler/Pods-TheYouTubeShuffler.debug.xcconfig"; sourceTree = "<group>"; };
+		CA1F41621D3DC983001FF557 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		CA1F41641D3DCA69001FF557 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		CA8B43891D2E32EA00419E4D /* TheYouTubeShuffler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheYouTubeShuffler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA8B438C1D2E32EA00419E4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA8B43911D2E32EB00419E4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA8B43941D2E32EB00419E4D /* TheYouTubeShuffler.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheYouTubeShuffler.xcdatamodel; sourceTree = "<group>"; };
+		CA8B43961D2E32EB00419E4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA8B43991D2E32EB00419E4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CA8B439B1D2E32EB00419E4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CACD82511D3975A000A510AD /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		CACD82531D397ED400A510AD /* PlayVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoViewController.swift; sourceTree = "<group>"; };
+		CACD82551D399E0100A510AD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		E441AD16B9A61195EB2333CD /* Pods-TheYouTubeShuffler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheYouTubeShuffler.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheYouTubeShuffler/Pods-TheYouTubeShuffler.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA8B43861D2E32EA00419E4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CACD82561D399E0100A510AD /* libsqlite3.tbd in Frameworks */,
+				CA1F41631D3DC983001FF557 /* Alamofire.framework in Frameworks */,
+				18B8B6DE65DAC7A5705B5E5E /* Pods_TheYouTubeShuffler.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22E3A1E848663D98BDEB1B4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				95BD30F0532CE8A7FA3B1DD3 /* Pods-TheYouTubeShuffler.debug.xcconfig */,
+				E441AD16B9A61195EB2333CD /* Pods-TheYouTubeShuffler.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		579998D048A374AE0AB3A265 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B4769178A6CC8A882D1FEC4 /* Pods_TheYouTubeShuffler.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA8B43801D2E32EA00419E4D = {
+			isa = PBXGroup;
+			children = (
+				CACD82551D399E0100A510AD /* libsqlite3.tbd */,
+				CA8B438B1D2E32EA00419E4D /* TheYouTubeShuffler */,
+				CA8B438A1D2E32EA00419E4D /* Products */,
+				22E3A1E848663D98BDEB1B4C /* Pods */,
+				579998D048A374AE0AB3A265 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CA8B438A1D2E32EA00419E4D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA8B43891D2E32EA00419E4D /* TheYouTubeShuffler.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA8B438B1D2E32EA00419E4D /* TheYouTubeShuffler */ = {
+			isa = PBXGroup;
+			children = (
+				CA1F41641D3DCA69001FF557 /* Podfile */,
+				CA8B438C1D2E32EA00419E4D /* AppDelegate.swift */,
+				CACD82511D3975A000A510AD /* CategoriesViewController.swift */,
+				CACD82531D397ED400A510AD /* PlayVideoViewController.swift */,
+				CA8B43901D2E32EB00419E4D /* Main.storyboard */,
+				CA8B43961D2E32EB00419E4D /* Assets.xcassets */,
+				CA8B43981D2E32EB00419E4D /* LaunchScreen.storyboard */,
+				CA8B439B1D2E32EB00419E4D /* Info.plist */,
+				CA8B43931D2E32EB00419E4D /* TheYouTubeShuffler.xcdatamodeld */,
+				CA1F41621D3DC983001FF557 /* Alamofire.framework */,
+			);
+			path = TheYouTubeShuffler;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA8B43881D2E32EA00419E4D /* TheYouTubeShuffler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA8B439E1D2E32EB00419E4D /* Build configuration list for PBXNativeTarget "TheYouTubeShuffler" */;
+			buildPhases = (
+				95057C4F699BC81D9DDB8008 /* [CP] Check Pods Manifest.lock */,
+				CA8B43851D2E32EA00419E4D /* Sources */,
+				CA8B43861D2E32EA00419E4D /* Frameworks */,
+				CA8B43871D2E32EA00419E4D /* Resources */,
+				BBCDE30933DB8F0EA89B50B3 /* [CP] Embed Pods Frameworks */,
+				F67C606235AA292CFEB10ECF /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TheYouTubeShuffler;
+			productName = TheYouTubeShuffler;
+			productReference = CA8B43891D2E32EA00419E4D /* TheYouTubeShuffler.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA8B43811D2E32EA00419E4D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Kasra Sheik";
+				TargetAttributes = {
+					CA8B43881D2E32EA00419E4D = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = CA8B43841D2E32EA00419E4D /* Build configuration list for PBXProject "TheYouTubeShuffler" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA8B43801D2E32EA00419E4D;
+			productRefGroup = CA8B438A1D2E32EA00419E4D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA8B43881D2E32EA00419E4D /* TheYouTubeShuffler */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA8B43871D2E32EA00419E4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA8B439A1D2E32EB00419E4D /* LaunchScreen.storyboard in Resources */,
+				CA8B43971D2E32EB00419E4D /* Assets.xcassets in Resources */,
+				CA1F41651D3DCA69001FF557 /* Podfile in Resources */,
+				CA8B43921D2E32EB00419E4D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		95057C4F699BC81D9DDB8008 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BBCDE30933DB8F0EA89B50B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheYouTubeShuffler/Pods-TheYouTubeShuffler-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F67C606235AA292CFEB10ECF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheYouTubeShuffler/Pods-TheYouTubeShuffler-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA8B43851D2E32EA00419E4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CACD82541D397ED400A510AD /* PlayVideoViewController.swift in Sources */,
+				CA8B438D1D2E32EB00419E4D /* AppDelegate.swift in Sources */,
+				CACD82521D3975A000A510AD /* CategoriesViewController.swift in Sources */,
+				CA8B43951D2E32EB00419E4D /* TheYouTubeShuffler.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CA8B43901D2E32EB00419E4D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA8B43911D2E32EB00419E4D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CA8B43981D2E32EB00419E4D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA8B43991D2E32EB00419E4D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA8B439C1D2E32EB00419E4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CA8B439D1D2E32EB00419E4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA8B439F1D2E32EB00419E4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95BD30F0532CE8A7FA3B1DD3 /* Pods-TheYouTubeShuffler.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/TheYouTubeShuffler",
+				);
+				INFOPLIST_FILE = TheYouTubeShuffler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Kasra.TheYouTubeShuffler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CA8B43A01D2E32EB00419E4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E441AD16B9A61195EB2333CD /* Pods-TheYouTubeShuffler.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/TheYouTubeShuffler",
+				);
+				INFOPLIST_FILE = TheYouTubeShuffler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Kasra.TheYouTubeShuffler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA8B43841D2E32EA00419E4D /* Build configuration list for PBXProject "TheYouTubeShuffler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA8B439C1D2E32EB00419E4D /* Debug */,
+				CA8B439D1D2E32EB00419E4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA8B439E1D2E32EB00419E4D /* Build configuration list for PBXNativeTarget "TheYouTubeShuffler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA8B439F1D2E32EB00419E4D /* Debug */,
+				CA8B43A01D2E32EB00419E4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CA8B43931D2E32EB00419E4D /* TheYouTubeShuffler.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CA8B43941D2E32EB00419E4D /* TheYouTubeShuffler.xcdatamodel */,
+			);
+			currentVersion = CA8B43941D2E32EB00419E4D /* TheYouTubeShuffler.xcdatamodel */;
+			path = TheYouTubeShuffler.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CA8B43811D2E32EA00419E4D /* Project object */;
+}

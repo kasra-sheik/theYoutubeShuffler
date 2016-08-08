@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UKh-FU-iYU">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--The YouTube Shuffler-->
+        <scene sceneID="YE8-OR-wO1">
+            <objects>
+                <viewController id="RJP-SW-jr1" customClass="CategoriesViewController" customModule="TheYouTubeShuffler" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1x8-HD-FoG"/>
+                        <viewControllerLayoutGuide type="bottom" id="e6b-eA-kx0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XET-Ip-9xM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vC3-De-eet">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="category" id="C9g-IM-PIS">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C9g-IM-PIS" id="8W9-9m-uzm">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vC3-De-eet" firstAttribute="leading" secondItem="XET-Ip-9xM" secondAttribute="leading" id="CeM-X4-ELz"/>
+                            <constraint firstAttribute="trailing" secondItem="vC3-De-eet" secondAttribute="trailing" id="IBh-rp-vkm"/>
+                            <constraint firstItem="e6b-eA-kx0" firstAttribute="top" secondItem="vC3-De-eet" secondAttribute="bottom" id="USU-An-2hn"/>
+                            <constraint firstItem="vC3-De-eet" firstAttribute="top" secondItem="1x8-HD-FoG" secondAttribute="bottom" id="eLg-b0-dGs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="The YouTube Shuffler" id="cwA-k4-MOX">
+                        <barButtonItem key="backBarButtonItem" title="Categories" id="6b4-BS-rXH"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="play" id="jks-QW-srS">
+                            <connections>
+                                <action selector="settingsButton:" destination="RJP-SW-jr1" id="2ao-Kf-bBb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="vC3-De-eet" id="8jx-Rh-Bt8"/>
+                        <segue destination="d6x-fK-NBq" kind="show" identifier="showVideo" id="rd7-9x-0yO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7zQ-jx-o5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1291" y="-83"/>
+        </scene>
+        <!--Play Video View Controller-->
+        <scene sceneID="cSA-e2-u58">
+            <objects>
+                <viewController id="d6x-fK-NBq" customClass="PlayVideoViewController" customModule="TheYouTubeShuffler" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xvY-jr-o0u"/>
+                        <viewControllerLayoutGuide type="bottom" id="AsY-Tm-jaa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wab-Me-iTc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWf-we-YXc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="xEh-BL-HVw"/>
+                                </constraints>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBX-bg-WWP">
+                                <rect key="frame" x="20" y="207" width="550" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MJ5-qW-Dul"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Shuffle">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="generate:" destination="d6x-fK-NBq" eventType="touchUpInside" id="aGp-fU-SWK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dda-hj-Een">
+                                <rect key="frame" x="20" y="108" width="560" height="79"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="yiI-Xj-1h1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RH5-WV-5mw">
+                                <rect key="frame" x="20" y="347" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Dda-hj-Een" firstAttribute="top" secondItem="aWf-we-YXc" secondAttribute="bottom" constant="20" id="0V6-sZ-Cne"/>
+                            <constraint firstItem="MBX-bg-WWP" firstAttribute="top" secondItem="Dda-hj-Een" secondAttribute="bottom" constant="65" id="8BN-CA-T2d"/>
+                            <constraint firstItem="Dda-hj-Een" firstAttribute="top" secondItem="aWf-we-YXc" secondAttribute="bottom" constant="8" id="Dfc-N7-r49"/>
+                            <constraint firstAttribute="trailing" secondItem="Dda-hj-Een" secondAttribute="trailing" constant="20" id="H4x-Wb-QWg"/>
+                            <constraint firstItem="Dda-hj-Een" firstAttribute="leading" secondItem="Wab-Me-iTc" secondAttribute="leading" constant="20" id="InE-X4-Ugl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RH5-WV-5mw" secondAttribute="trailing" id="Le1-E2-HaV"/>
+                            <constraint firstItem="MBX-bg-WWP" firstAttribute="centerX" secondItem="Wab-Me-iTc" secondAttribute="centerX" id="PmM-NC-kFK"/>
+                            <constraint firstItem="aWf-we-YXc" firstAttribute="leading" secondItem="Wab-Me-iTc" secondAttribute="leading" id="Q5h-lp-Ikh"/>
+                            <constraint firstItem="aWf-we-YXc" firstAttribute="top" secondItem="Wab-Me-iTc" secondAttribute="top" id="bsp-bj-gSK"/>
+                            <constraint firstItem="RH5-WV-5mw" firstAttribute="top" secondItem="MBX-bg-WWP" secondAttribute="bottom" constant="32" id="dwo-8S-LpZ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="RH5-WV-5mw" secondAttribute="leading" id="eZM-8e-tDs"/>
+                            <constraint firstItem="MBX-bg-WWP" firstAttribute="top" secondItem="Dda-hj-Een" secondAttribute="bottom" constant="8" id="kiU-VV-uiN"/>
+                            <constraint firstAttribute="trailing" secondItem="aWf-we-YXc" secondAttribute="trailing" id="qiW-Oz-9kt"/>
+                            <constraint firstItem="Dda-hj-Een" firstAttribute="top" secondItem="aWf-we-YXc" secondAttribute="bottom" constant="20" id="rSd-An-02b"/>
+                            <constraint firstAttribute="trailing" secondItem="MBX-bg-WWP" secondAttribute="trailing" constant="25" id="wHh-5K-P8u"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="RH5-WV-5mw" id="D26-ck-M64"/>
+                        <outlet property="heightLayoutConstraint" destination="xEh-BL-HVw" id="phu-H9-wDE"/>
+                        <outlet property="shuffle" destination="MBX-bg-WWP" id="oDU-L0-JvQ"/>
+                        <outlet property="titleLabel" destination="Dda-hj-Een" id="Q3Z-Wd-sOe"/>
+                        <outlet property="videoPlayer" destination="aWf-we-YXc" id="NJh-cQ-cNa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h8H-dJ-31r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2031" y="-83"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Zuk-ff-ZYB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UKh-FU-iYU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FV7-5U-bIM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RJP-SW-jr1" kind="relationship" relationship="rootViewController" id="Qdo-8w-45n"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zu5-rg-VY5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="479" y="-83"/>
+        </scene>
+    </scenes>
+</document>
