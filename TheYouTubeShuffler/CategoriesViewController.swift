@@ -11,7 +11,7 @@ import UIKit
 
 class CategoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
-    var categoriesArray: [String] = ["Funnyy", "Sports","Science and Technology", "Music", "Animals", "Popular", "Random"]
+    var categoriesArray: [String] = ["Funny", "Sports","Science and Technology", "Music", "Animals", "Popular", "Random"]
     var imagesArray = [UIImage]()
     var selectedCategory: String = ""
     
