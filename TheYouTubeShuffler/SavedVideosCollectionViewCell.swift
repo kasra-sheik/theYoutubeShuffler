@@ -11,6 +11,7 @@ import UIKit
 class SavedVideosCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var video: UIWebView!
     @IBOutlet weak var videoTitle: UILabel!
+    @IBOutlet weak var category: UILabel!
     
     
 }

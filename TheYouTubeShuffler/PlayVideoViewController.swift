@@ -16,6 +16,7 @@ class PlayVideoViewController: UIViewController {
     var youtubeId: String = ""
     var videoTitle: String = ""
     var videoDescription: String = ""
+    
 
     @IBOutlet weak var shuffle: UIButton!
     @IBOutlet weak var save: UIButton!
@@ -34,9 +35,8 @@ class PlayVideoViewController: UIViewController {
         descriptionTextBox.hidden = true
         shuffle.titleLabel?.font = UIFont(name:"Avenir", size:22)
         save.titleLabel?.font = UIFont(name:"Avenir", size:22)
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        var videoArray = defaults.objectForKey("savedVideosArray") as? [String] ?? [String]()
+        self.generate(shuffle)
+    
         
     }
 
@@ -173,26 +173,59 @@ class PlayVideoViewController: UIViewController {
     }
     @IBAction func saveVideo(sender: AnyObject) {
         print("Saving..")
-        if(self.youtubeId != "") {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            var videoArray = defaults.objectForKey("savedVideosArray") as? [String] ?? [String]()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if(defaults.objectForKey("savedVideos") == nil) {
+            var test:[Video] = []
             
-            //first video a user saves
-            if(videoArray.count == 0) {
-                var videoArray:[String] = []
-                videoArray.append(self.youtubeId)
-                let defaults = NSUserDefaults.standardUserDefaults()
-                defaults.setObject(videoArray, forKey: "savedVideosArray")
-            }
-            else {
-                videoArray.append(self.youtubeId)
-                defaults.setObject(videoArray, forKey: "savedVideosArray")
-
-            }
+           let video = Video(videoId: self.youtubeId, videoTitle: self.titleLabel.text!, videoCateogry: self.selectedCategory)
+            
+            test.append(video)
+            var userDefaults = NSUserDefaults.standardUserDefaults()
+            let encodedData = NSKeyedArchiver.archivedDataWithRootObject(test)
+            userDefaults.setObject(encodedData, forKey: "savedVideos")
+            userDefaults.synchronize()
+            
+            //save the array
             
             
         }
+        else {
+            var videoArray:[Video] = []
+            let decoded  = defaults.objectForKey("savedVideos") as! NSData
+            var currentlySavedVideos = NSKeyedUnarchiver.unarchiveObjectWithData(decoded) as! [Video]
+            videoArray = currentlySavedVideos
+            
+            let video = Video(videoId: self.youtubeId, videoTitle: self.titleLabel.text!, videoCateogry: self.selectedCategory)
+           
+            if(videoAlreadySaved(videoArray, vid: video)) {
+                return
+            }
+            
+            videoArray.append(video)
+            
+            
+            let encodedData = NSKeyedArchiver.archivedDataWithRootObject(videoArray)
+            defaults.setObject(encodedData, forKey: "savedVideos")
+            defaults.synchronize()
+            
+            
+            //check for duplicate values
+        }
+
+       
+        
+        
+    
     }
-
-
+    func videoAlreadySaved(videoArray:[Video], vid:Video) ->Bool {
+        let currentVidId = vid.videoId
+        for video in videoArray {
+            if(currentVidId == video.videoId) {
+                return true
+            }
+        }
+        
+        return false
+    }
 }

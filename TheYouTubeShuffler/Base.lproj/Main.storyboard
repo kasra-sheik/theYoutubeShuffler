@@ -80,26 +80,39 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mp9-T7-1C7">
-                                    <size key="itemSize" width="358.5" height="200"/>
+                                    <size key="itemSize" width="311.5" height="258"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="G9J-xZ-yPR" customClass="SavedVideosCollectionViewCell" customModule="TheYouTubeShuffler" customModuleProvider="target">
-                                        <rect key="frame" x="121" y="74" width="359" height="200"/>
+                                        <rect key="frame" x="144.5" y="74" width="311.5" height="258"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="311.5" height="258"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HHs-pG-BGp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="153"/>
+                                                <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gb-Fa-mEj">
+                                                    <rect key="frame" x="-0.5" y="0.0" width="310" height="155"/>
                                                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="155" id="zsD-US-QmM"/>
+                                                    </constraints>
                                                 </webView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ef-an-oAf">
-                                                    <rect key="frame" x="8" y="169" width="343" height="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2r-Nc-HJ1">
+                                                    <rect key="frame" x="9.5" y="178" width="292" height="23"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sz-2e-23D">
+                                                    <rect key="frame" x="144" y="237" width="152" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="4du-6W-OcG"/>
+                                                        <constraint firstAttribute="width" constant="152" id="kM7-rL-kJe"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -108,14 +121,19 @@
                                         </view>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="1Ef-an-oAf" secondAttribute="bottom" constant="8" id="7gh-IQ-jkk"/>
-                                            <constraint firstItem="1Ef-an-oAf" firstAttribute="top" secondItem="HHs-pG-BGp" secondAttribute="bottom" constant="18" id="DaO-Ko-Om8"/>
-                                            <constraint firstItem="1Ef-an-oAf" firstAttribute="leading" secondItem="G9J-xZ-yPR" secondAttribute="leading" constant="8" id="Yhc-dh-JZa"/>
-                                            <constraint firstAttribute="trailing" secondItem="1Ef-an-oAf" secondAttribute="trailing" constant="8" id="hdz-pk-zfn"/>
+                                            <constraint firstAttribute="trailing" secondItem="a2r-Nc-HJ1" secondAttribute="trailing" constant="10" id="X5b-CR-uSb"/>
+                                            <constraint firstItem="6gb-Fa-mEj" firstAttribute="leading" secondItem="G9J-xZ-yPR" secondAttribute="leading" id="YmM-hH-9ol"/>
+                                            <constraint firstItem="5Sz-2e-23D" firstAttribute="trailing" secondItem="a2r-Nc-HJ1" secondAttribute="trailing" id="cZC-Gw-h3x"/>
+                                            <constraint firstItem="6gb-Fa-mEj" firstAttribute="top" secondItem="G9J-xZ-yPR" secondAttribute="top" id="e6T-vN-kby"/>
+                                            <constraint firstItem="6gb-Fa-mEj" firstAttribute="centerX" secondItem="G9J-xZ-yPR" secondAttribute="centerX" constant="-0.25" id="gbr-S6-KWg"/>
+                                            <constraint firstItem="a2r-Nc-HJ1" firstAttribute="leading" secondItem="G9J-xZ-yPR" secondAttribute="leading" constant="10" id="igz-sP-oOW"/>
+                                            <constraint firstItem="a2r-Nc-HJ1" firstAttribute="top" secondItem="6gb-Fa-mEj" secondAttribute="bottom" constant="23" id="o26-dS-SCn"/>
+                                            <constraint firstItem="5Sz-2e-23D" firstAttribute="bottom" secondItem="G9J-xZ-yPR" secondAttribute="bottomMargin" id="vTV-Iy-8CC"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="video" destination="HHs-pG-BGp" id="3Ns-yJ-41s"/>
-                                            <outlet property="videoTitle" destination="1Ef-an-oAf" id="7B8-hb-Vz2"/>
+                                            <outlet property="category" destination="5Sz-2e-23D" id="SEs-J6-52f"/>
+                                            <outlet property="video" destination="6gb-Fa-mEj" id="yjc-xY-asc"/>
+                                            <outlet property="videoTitle" destination="a2r-Nc-HJ1" id="0Sa-jz-nsR"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

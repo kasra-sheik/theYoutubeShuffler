@@ -50,7 +50,7 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 //        return (self.view.frame.size.width / 320) * 72
-          return (self.view.frame.size.width / 320) * 68.5
+          return (self.view.frame.size.width / 320) * 67.5
 
         
         

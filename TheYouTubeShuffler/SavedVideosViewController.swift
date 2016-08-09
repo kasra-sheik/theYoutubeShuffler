@@ -12,14 +12,17 @@ import Alamofire
 class SavedVideosViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var savedVideos: UICollectionView!
+    var videos:[Video]?
     
-    var videoIds:[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let videoArray = defaults.objectForKey("savedVideosArray") as? [String] ?? [String]()
-        self.videoIds = videoArray
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if(userDefaults.objectForKey("savedVideos") != nil) {
+            let decoded  = userDefaults.objectForKey("savedVideos") as! NSData
+            let videoArray = NSKeyedUnarchiver.unarchiveObjectWithData(decoded) as! [Video]
+            self.videos = videoArray
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -28,14 +31,20 @@ class SavedVideosViewController: UIViewController,UICollectionViewDelegate, UICo
         // Dispose of any resources that can be recreated.
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videoIds.count
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if(userDefaults.objectForKey("savedVideos") != nil) {
+            return videos!.count
+        }
+        else {
+            return 0
+        }
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = savedVideos.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! SavedVideosCollectionViewCell
-    
-        let width = 359
+
+        let width = 311.5
         let height = 153
-        let id = self.videoIds[indexPath.row]
+        let id = self.videos![indexPath.row].videoId
         cell.video.allowsInlineMediaPlayback = false
 
         
@@ -43,19 +52,8 @@ class SavedVideosViewController: UIViewController,UICollectionViewDelegate, UICo
         
         cell.video.loadHTMLString(videoEmbedString, baseURL: nil)
         
-        Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=AIzaSyDd7fUh3e5ylq-0Wv92mkyxaXbm07lm1Fc").responseJSON { response in
-            
-            if let JSON = response.result.value {
-                if(JSON["items"]!!.count > 0) {
-                    cell.videoTitle.text = JSON["items"]!![0]["snippet"]!!["title"] as! String
-                }
-                
-            }
-            
-            
-        }
-        
-        
+        cell.videoTitle.text = videos![indexPath.row].videoTitle
+        cell.category.text = "Category: " + videos![indexPath.row].videoCateogry
         
         
         
