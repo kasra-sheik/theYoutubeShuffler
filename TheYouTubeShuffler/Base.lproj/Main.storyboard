@@ -21,6 +21,15 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vC3-De-eet">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <tabBar key="tableFooterView" contentMode="scaleToFill" id="KCK-l7-hs6">
+                                    <rect key="frame" x="0.0" y="167" width="600" height="49"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <items>
+                                        <tabBarItem tag="1" title="MyVideos" id="gdD-va-JeF"/>
+                                        <tabBarItem tag="2" systemItem="more" id="hkW-5g-CVl"/>
+                                    </items>
+                                </tabBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="category" id="C9g-IM-PIS">
                                         <rect key="frame" x="0.0" y="92" width="600" height="75"/>
@@ -45,13 +54,93 @@
                         <barButtonItem key="backBarButtonItem" title="Categories" id="6b4-BS-rXH"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="tabBar" destination="KCK-l7-hs6" id="Lb7-vj-uWk"/>
                         <outlet property="tableView" destination="vC3-De-eet" id="8jx-Rh-Bt8"/>
                         <segue destination="d6x-fK-NBq" kind="show" identifier="showVideo" id="rd7-9x-0yO"/>
+                        <segue destination="CgB-84-Ter" kind="show" identifier="myVideos" id="tXm-Kl-zle"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zQ-jx-o5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1291" y="-83"/>
+        </scene>
+        <!--My Videos-->
+        <scene sceneID="y9y-Bb-cP6">
+            <objects>
+                <viewController title="My Videos" id="CgB-84-Ter" customClass="SavedVideosViewController" customModule="TheYouTubeShuffler" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aFn-LY-KIn"/>
+                        <viewControllerLayoutGuide type="bottom" id="LpG-8r-zk3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="orc-DF-tkW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="slx-bt-rRa">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mp9-T7-1C7">
+                                    <size key="itemSize" width="358.5" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="G9J-xZ-yPR" customClass="SavedVideosCollectionViewCell" customModule="TheYouTubeShuffler" customModuleProvider="target">
+                                        <rect key="frame" x="121" y="74" width="359" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HHs-pG-BGp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="153"/>
+                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                                </webView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ef-an-oAf">
+                                                    <rect key="frame" x="8" y="169" width="343" height="23"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="1Ef-an-oAf" secondAttribute="bottom" constant="8" id="7gh-IQ-jkk"/>
+                                            <constraint firstItem="1Ef-an-oAf" firstAttribute="top" secondItem="HHs-pG-BGp" secondAttribute="bottom" constant="18" id="DaO-Ko-Om8"/>
+                                            <constraint firstItem="1Ef-an-oAf" firstAttribute="leading" secondItem="G9J-xZ-yPR" secondAttribute="leading" constant="8" id="Yhc-dh-JZa"/>
+                                            <constraint firstAttribute="trailing" secondItem="1Ef-an-oAf" secondAttribute="trailing" constant="8" id="hdz-pk-zfn"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="video" destination="HHs-pG-BGp" id="3Ns-yJ-41s"/>
+                                            <outlet property="videoTitle" destination="1Ef-an-oAf" id="7B8-hb-Vz2"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="CgB-84-Ter" id="fPB-iX-BR0"/>
+                                    <outlet property="delegate" destination="CgB-84-Ter" id="1Iu-Ha-u5B"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="slx-bt-rRa" firstAttribute="bottom" secondItem="LpG-8r-zk3" secondAttribute="top" id="9WY-HB-dkO"/>
+                            <constraint firstItem="slx-bt-rRa" firstAttribute="top" secondItem="orc-DF-tkW" secondAttribute="top" id="b0y-HZ-7v6"/>
+                            <constraint firstAttribute="trailing" secondItem="slx-bt-rRa" secondAttribute="trailing" id="tCo-fy-jg6"/>
+                            <constraint firstItem="slx-bt-rRa" firstAttribute="leading" secondItem="orc-DF-tkW" secondAttribute="leading" id="v8g-jT-KHX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="savedVideos" destination="slx-bt-rRa" id="kCe-wb-rxc"/>
+                        <outlet property="view" destination="orc-DF-tkW" id="F2X-ft-x8b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rO0-vi-xzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1240" y="776"/>
         </scene>
         <!--Play Video View Controller-->
         <scene sceneID="cSA-e2-u58">
@@ -82,6 +171,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveVideo:" destination="d6x-fK-NBq" eventType="touchUpInside" id="Bcx-n5-BNy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsW-fZ-nQA">
                                 <rect key="frame" x="0.0" y="511" width="600" height="45"/>
@@ -145,6 +237,7 @@
                     <connections>
                         <outlet property="descriptionTextBox" destination="bVz-3l-Zlc" id="y3y-gW-dOw"/>
                         <outlet property="heightLayoutConstraint" destination="xEh-BL-HVw" id="phu-H9-wDE"/>
+                        <outlet property="save" destination="dgX-Ie-Cbq" id="tvF-um-2Xg"/>
                         <outlet property="shuffle" destination="YsW-fZ-nQA" id="cW9-3W-iH7"/>
                         <outlet property="titleLabel" destination="t4g-YP-2VZ" id="C3G-Db-eka"/>
                         <outlet property="videoPlayer" destination="aWf-we-YXc" id="NJh-cQ-cNa"/>

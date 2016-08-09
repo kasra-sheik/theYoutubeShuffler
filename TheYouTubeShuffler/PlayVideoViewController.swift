@@ -18,6 +18,7 @@ class PlayVideoViewController: UIViewController {
     var videoDescription: String = ""
 
     @IBOutlet weak var shuffle: UIButton!
+    @IBOutlet weak var save: UIButton!
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionTextBox: UITextView!
@@ -31,9 +32,11 @@ class PlayVideoViewController: UIViewController {
         self.shuffle.backgroundColor = UIColor(red: 102/255.0, green: 102/255.0, blue: 102/255.0, alpha: 1)
         titleLabel.hidden = true
         descriptionTextBox.hidden = true
-        /*will add custom fonts later..*/
-//        shuffle.titleLabel?.font = UIFont(name:"Avenir", size:22)
-    
+        shuffle.titleLabel?.font = UIFont(name:"Avenir", size:22)
+        save.titleLabel?.font = UIFont(name:"Avenir", size:22)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var videoArray = defaults.objectForKey("savedVideosArray") as? [String] ?? [String]()
         
     }
 
@@ -167,6 +170,28 @@ class PlayVideoViewController: UIViewController {
 
         
         
+    }
+    @IBAction func saveVideo(sender: AnyObject) {
+        print("Saving..")
+        if(self.youtubeId != "") {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            var videoArray = defaults.objectForKey("savedVideosArray") as? [String] ?? [String]()
+            
+            //first video a user saves
+            if(videoArray.count == 0) {
+                var videoArray:[String] = []
+                videoArray.append(self.youtubeId)
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setObject(videoArray, forKey: "savedVideosArray")
+            }
+            else {
+                videoArray.append(self.youtubeId)
+                defaults.setObject(videoArray, forKey: "savedVideosArray")
+
+            }
+            
+            
+        }
     }
 
 

@@ -10,6 +10,8 @@
 		18B8B6DE65DAC7A5705B5E5E /* Pods_TheYouTubeShuffler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4769178A6CC8A882D1FEC4 /* Pods_TheYouTubeShuffler.framework */; };
 		CA1F41631D3DC983001FF557 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1F41621D3DC983001FF557 /* Alamofire.framework */; };
 		CA1F41651D3DCA69001FF557 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CA1F41641D3DCA69001FF557 /* Podfile */; };
+		CA45B2EB1D59D01100A4CC9A /* SavedVideosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45B2EA1D59D01100A4CC9A /* SavedVideosCollectionViewCell.swift */; };
+		CA45B2ED1D59D03700A4CC9A /* SavedVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45B2EC1D59D03700A4CC9A /* SavedVideosViewController.swift */; };
 		CA8B438D1D2E32EB00419E4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8B438C1D2E32EA00419E4D /* AppDelegate.swift */; };
 		CA8B43921D2E32EB00419E4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8B43901D2E32EB00419E4D /* Main.storyboard */; };
 		CA8B43951D2E32EB00419E4D /* TheYouTubeShuffler.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA8B43931D2E32EB00419E4D /* TheYouTubeShuffler.xcdatamodeld */; };
@@ -25,6 +27,11 @@
 		95BD30F0532CE8A7FA3B1DD3 /* Pods-TheYouTubeShuffler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheYouTubeShuffler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheYouTubeShuffler/Pods-TheYouTubeShuffler.debug.xcconfig"; sourceTree = "<group>"; };
 		CA1F41621D3DC983001FF557 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		CA1F41641D3DCA69001FF557 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		CA45B2E21D59BD3000A4CC9A /* JGProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JGProgressHUD.framework; path = "Pods/../build/Debug-iphoneos/JGProgressHUD/JGProgressHUD.framework"; sourceTree = "<group>"; };
+		CA45B2E41D59BD4900A4CC9A /* JGProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JGProgressHUD.framework; path = "Pods/../build/Debug-iphoneos/JGProgressHUD/JGProgressHUD.framework"; sourceTree = "<group>"; };
+		CA45B2E61D59BD9E00A4CC9A /* JGProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JGProgressHUD.framework; path = "Pods/../build/Debug-iphoneos/JGProgressHUD/JGProgressHUD.framework"; sourceTree = "<group>"; };
+		CA45B2EA1D59D01100A4CC9A /* SavedVideosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedVideosCollectionViewCell.swift; sourceTree = "<group>"; };
+		CA45B2EC1D59D03700A4CC9A /* SavedVideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedVideosViewController.swift; sourceTree = "<group>"; };
 		CA8B43891D2E32EA00419E4D /* TheYouTubeShuffler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheYouTubeShuffler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8B438C1D2E32EA00419E4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA8B43911D2E32EB00419E4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,6 +71,9 @@
 		579998D048A374AE0AB3A265 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA45B2E61D59BD9E00A4CC9A /* JGProgressHUD.framework */,
+				CA45B2E41D59BD4900A4CC9A /* JGProgressHUD.framework */,
+				CA45B2E21D59BD3000A4CC9A /* JGProgressHUD.framework */,
 				4B4769178A6CC8A882D1FEC4 /* Pods_TheYouTubeShuffler.framework */,
 			);
 			name = Frameworks;
@@ -95,6 +105,8 @@
 				CA8B438C1D2E32EA00419E4D /* AppDelegate.swift */,
 				CACD82511D3975A000A510AD /* CategoriesViewController.swift */,
 				CACD82531D397ED400A510AD /* PlayVideoViewController.swift */,
+				CA45B2EC1D59D03700A4CC9A /* SavedVideosViewController.swift */,
+				CA45B2EA1D59D01100A4CC9A /* SavedVideosCollectionViewCell.swift */,
 				CA8B43901D2E32EB00419E4D /* Main.storyboard */,
 				CA8B43961D2E32EB00419E4D /* Assets.xcassets */,
 				CA8B43981D2E32EB00419E4D /* LaunchScreen.storyboard */,
@@ -230,7 +242,9 @@
 			files = (
 				CACD82541D397ED400A510AD /* PlayVideoViewController.swift in Sources */,
 				CA8B438D1D2E32EB00419E4D /* AppDelegate.swift in Sources */,
+				CA45B2EB1D59D01100A4CC9A /* SavedVideosCollectionViewCell.swift in Sources */,
 				CACD82521D3975A000A510AD /* CategoriesViewController.swift in Sources */,
+				CA45B2ED1D59D03700A4CC9A /* SavedVideosViewController.swift in Sources */,
 				CA8B43951D2E32EB00419E4D /* TheYouTubeShuffler.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +363,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/TheYouTubeShuffler",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/JGProgressHUD",
 				);
 				INFOPLIST_FILE = TheYouTubeShuffler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -366,6 +381,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/TheYouTubeShuffler",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/JGProgressHUD",
 				);
 				INFOPLIST_FILE = TheYouTubeShuffler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

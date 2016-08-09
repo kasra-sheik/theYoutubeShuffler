@@ -9,12 +9,13 @@
 
 import UIKit
 
-class CategoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CategoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITabBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     var categoriesArray: [String] = ["Funny", "Sports","Science and Technology", "Music", "Animals", "Popular", "Random"]
     var imagesArray = [UIImage]()
     var selectedCategory: String = ""
     
+    @IBOutlet weak var tabBar: UITabBar!
     
 
     override func viewDidLoad() {
@@ -25,6 +26,7 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         self.title = "The YouTube Shuffler"
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tabBar.delegate = self
         
         
         imagesArray.append((UIImage(named: "Music.png")!))
@@ -34,10 +36,10 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         imagesArray.append((UIImage(named: "Animals.png")!))
         imagesArray.append((UIImage(named: "Popular.png")!))
         imagesArray.append((UIImage(named: "Random.png")!))
+    
+//        self.tabBar.tintColor = UIColor(red: 204/255.0, green: 24/255.0, blue: 30/255.0, alpha: 1)
+
         
-       
-
-
         // Do any additional setup after loading the view.
     }
 
@@ -47,7 +49,10 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return (self.view.frame.size.width / 320) * 72
+//        return (self.view.frame.size.width / 320) * 72
+          return (self.view.frame.size.width / 320) * 68.5
+
+        
         
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,10 +78,17 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
 
         self.performSegueWithIdentifier("showVideo", sender: self)
     }
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        if(item.tag == 1) {
+            self.performSegueWithIdentifier("myVideos", sender: self)
+            
+        }
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let videoPage = segue.destinationViewController as! PlayVideoViewController
-        videoPage.selectedCategory = selectedCategory
-        
+        if(segue.identifier == "showVideo") {
+            let videoPage = segue.destinationViewController as! PlayVideoViewController
+            videoPage.selectedCategory = selectedCategory
+        }
     }
 
 }
