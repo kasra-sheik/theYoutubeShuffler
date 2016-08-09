@@ -20,23 +20,21 @@ class PlayVideoViewController: UIViewController {
     @IBOutlet weak var shuffle: UIButton!
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionTextBox: UITextView!
     @IBOutlet weak var heightLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var videoPlayer: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = selectedCategory
         self.videoPlayer.backgroundColor = UIColor.grayColor()
         self.shuffle.backgroundColor = UIColor(red: 102/255.0, green: 102/255.0, blue: 102/255.0, alpha: 1)
         titleLabel.hidden = true
-        descriptionLabel.hidden = true
-        shuffle.titleLabel?.font = UIFont(name:"Avenir", size:22)
+        descriptionTextBox.hidden = true
+        /*will add custom fonts later..*/
+//        shuffle.titleLabel?.font = UIFont(name:"Avenir", size:22)
+    
         
-//        scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.width)
-        
-
-        self.title = selectedCategory
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -158,11 +156,11 @@ class PlayVideoViewController: UIViewController {
                 
             }
  
-                
                 self.titleLabel.text = self.videoTitle
                 self.titleLabel.hidden = false
-                self.descriptionLabel.text = self.videoDescription
-                self.descriptionLabel.hidden = false
+                self.descriptionTextBox.text = self.videoDescription
+                self.descriptionTextBox.hidden = false
+            //self.descriptionLabel.hidden = false
             
         }
         
