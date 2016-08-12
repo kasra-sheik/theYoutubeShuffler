@@ -9,6 +9,7 @@
 
 import UIKit
 import Alamofire
+import PKHUD
 
 class PlayVideoViewController: UIViewController {
     
@@ -21,9 +22,10 @@ class PlayVideoViewController: UIViewController {
     @IBOutlet weak var shuffle: UIButton!
     @IBOutlet weak var save: UIButton!
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionTextBox: UITextView!
-    @IBOutlet weak var heightLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet weak var videoText: UITextView!
+//    @IBOutlet weak var titleLabel: UILabel!
+//    @IBOutlet weak var descriptionLabel: UILabel!
+      @IBOutlet weak var heightLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var videoPlayer: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +33,10 @@ class PlayVideoViewController: UIViewController {
         self.title = selectedCategory
         self.videoPlayer.backgroundColor = UIColor.grayColor()
         self.shuffle.backgroundColor = UIColor(red: 102/255.0, green: 102/255.0, blue: 102/255.0, alpha: 1)
-        titleLabel.hidden = true
-        descriptionTextBox.hidden = true
+//        titleLabel.hidden = true
+//        descriptionLabel.hidden = true
+//        descriptionTextBox.hidden = true
+        videoText.hidden = true
         shuffle.titleLabel?.font = UIFont(name:"Avenir", size:22)
         save.titleLabel?.font = UIFont(name:"Avenir", size:22)
         self.generate(shuffle)
@@ -141,8 +145,7 @@ class PlayVideoViewController: UIViewController {
         let height = (width/320 * 180)
         self.heightLayoutConstraint.constant = height + 64
         
-        
-        
+    
         self.videoPlayer.allowsInlineMediaPlayback = true
         
         let videoEmbedString = "<html><head><style type=\"text/css\">body {background-color: transparent;color: white;}</style></head><body style=\"margin:0\"><iframe frameBorder=\"0\" height=\"" + String(height) + "\" width=\"" + String(width) + "\" src=\"http://www.youtube.com/embed/" + id + "?showinfo=0&modestbranding=1&frameborder=0&&playsinline=1&rel=0\"></iframe></body></html>"
@@ -158,18 +161,20 @@ class PlayVideoViewController: UIViewController {
                 }
                 
             }
+            
+        
+            let videoInfoText:String = self.videoTitle + "\n\n" + self.videoDescription
+            let infoTextSize = videoInfoText.characters.count
+            var attributedText: NSMutableAttributedString = NSMutableAttributedString(string: videoInfoText)
+            attributedText.addAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(20)], range: NSRange(location: 0, length: self.videoTitle.characters.count))
+//            attributedText.addAttributes([NSFontAttributeName: UIFont(name: "System", size:18.0)!], range: NSRange(location: self.videoTitle.characters.count + 2, length: infoTextSize
+//                ))
+            
+            self.videoText.attributedText = attributedText
+            self.videoText.hidden = false
  
-                self.titleLabel.text = self.videoTitle
-                self.titleLabel.hidden = false
-                self.descriptionTextBox.text = self.videoDescription
-                self.descriptionTextBox.hidden = false
-            //self.descriptionLabel.hidden = false
             
         }
-        
-
-        
-        
     }
     @IBAction func saveVideo(sender: AnyObject) {
         print("Saving..")
@@ -178,7 +183,7 @@ class PlayVideoViewController: UIViewController {
         if(defaults.objectForKey("savedVideos") == nil) {
             var test:[Video] = []
             
-           let video = Video(videoId: self.youtubeId, videoTitle: self.titleLabel.text!, videoCateogry: self.selectedCategory)
+           let video = Video(videoId: self.youtubeId, videoTitle: self.videoTitle, videoCateogry: self.videoDescription)
             
             test.append(video)
             var userDefaults = NSUserDefaults.standardUserDefaults()
@@ -196,7 +201,7 @@ class PlayVideoViewController: UIViewController {
             var currentlySavedVideos = NSKeyedUnarchiver.unarchiveObjectWithData(decoded) as! [Video]
             videoArray = currentlySavedVideos
             
-            let video = Video(videoId: self.youtubeId, videoTitle: self.titleLabel.text!, videoCateogry: self.selectedCategory)
+         let video = Video(videoId: self.youtubeId, videoTitle: self.videoTitle, videoCateogry: self.videoDescription)
            
             if(videoAlreadySaved(videoArray, vid: video)) {
                 return
@@ -208,6 +213,8 @@ class PlayVideoViewController: UIViewController {
             let encodedData = NSKeyedArchiver.archivedDataWithRootObject(videoArray)
             defaults.setObject(encodedData, forKey: "savedVideos")
             defaults.synchronize()
+            HUD.flash(.Success, delay: 1.0)
+
             
             
             //check for duplicate values

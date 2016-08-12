@@ -48,10 +48,11 @@ class SavedVideosViewController: UIViewController,UICollectionViewDelegate, UICo
         cell.video.allowsInlineMediaPlayback = false
 
         
+        
         let videoEmbedString = "<html><head><style type=\"text/css\">body {background-color: transparent;color: white;}</style></head><body style=\"margin:0\"><iframe frameBorder=\"0\" height=\"" + String(height) + "\" width=\"" + String(width) + "\" src=\"http://www.youtube.com/embed/" + id + "?showinfo=0&modestbranding=1&frameborder=0&&playsinline=1&rel=0\"></iframe></body></html>"
         
         cell.video.loadHTMLString(videoEmbedString, baseURL: nil)
-        
+    
         cell.videoTitle.text = videos![indexPath.row].videoTitle
         cell.category.text = "Category: " + videos![indexPath.row].videoCateogry
         
