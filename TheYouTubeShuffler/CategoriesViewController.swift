@@ -49,13 +49,9 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 //        return (self.view.frame.size.width / 320) * 72
           return (self.view.frame.size.width / 320) * 67.5
-
-        
-        
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoriesArray.count
@@ -73,7 +69,7 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         //original font size22
-        cell.textLabel!.font = UIFont(name:"Avenir", size:21)
+        cell.textLabel!.font = UIFont(name:"Avenir", size:19)
         cell.textLabel?.textColor = UIColor.blackColor()
 
     }
@@ -85,9 +81,10 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
     }
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         if(item.tag == 1) {
-            
             self.performSegueWithIdentifier("myVideos", sender: self)
-            
+        }
+        else if(item.tag == 2) {
+            self.performSegueWithIdentifier("moreInfo", sender: nil)
         }
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -21,6 +21,7 @@ class Video: NSObject, NSCoding {
         self.videoTitle = videoTitle
         self.videoCateogry = videoCateogry
         
+        
     }
     
     required convenience init(coder aDecoder: NSCoder) {
@@ -28,6 +29,7 @@ class Video: NSObject, NSCoding {
         let videoTitle = aDecoder.decodeObjectForKey("videoTitle") as! String
         let videoCategory = aDecoder.decodeObjectForKey("videoCategory") as! String
         self.init(videoId: videoId, videoTitle: videoTitle, videoCateogry: videoCategory)
+
     }
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(videoId, forKey: "videoId")

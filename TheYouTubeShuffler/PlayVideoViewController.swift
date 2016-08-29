@@ -39,7 +39,10 @@ class PlayVideoViewController: UIViewController {
         videoText.hidden = true
         shuffle.titleLabel?.font = UIFont(name:"Avenir", size:22)
         save.titleLabel?.font = UIFont(name:"Avenir", size:22)
+        self.videoText.editable = false
+        self.save.enabled = false
         self.generate(shuffle)
+        
     
         
     }
@@ -172,28 +175,31 @@ class PlayVideoViewController: UIViewController {
             
             self.videoText.attributedText = attributedText
             self.videoText.hidden = false
- 
+            self.save.enabled = true
             
         }
     }
     @IBAction func saveVideo(sender: AnyObject) {
+        if(self.videoTitle == "" && self.videoDescription == "") {
+            print("cannot save video yet..")
+            return
+        }
         print("Saving..")
         let defaults = NSUserDefaults.standardUserDefaults()
         
         if(defaults.objectForKey("savedVideos") == nil) {
             var test:[Video] = []
             
-           let video = Video(videoId: self.youtubeId, videoTitle: self.videoTitle, videoCateogry: self.videoDescription)
+           let video = Video(videoId: self.youtubeId, videoTitle: self.videoTitle, videoCateogry: self.selectedCategory)
+            HUD.flash(.LabeledSuccess(title: "", subtitle: "Saved!"), delay: 1.0)
+
             
             test.append(video)
             var userDefaults = NSUserDefaults.standardUserDefaults()
             let encodedData = NSKeyedArchiver.archivedDataWithRootObject(test)
             userDefaults.setObject(encodedData, forKey: "savedVideos")
             userDefaults.synchronize()
-            
-            //save the array
-            
-            
+        
         }
         else {
             var videoArray:[Video] = []
@@ -201,7 +207,7 @@ class PlayVideoViewController: UIViewController {
             var currentlySavedVideos = NSKeyedUnarchiver.unarchiveObjectWithData(decoded) as! [Video]
             videoArray = currentlySavedVideos
             
-         let video = Video(videoId: self.youtubeId, videoTitle: self.videoTitle, videoCateogry: self.videoDescription)
+         let video = Video(videoId: self.youtubeId, videoTitle: self.videoTitle, videoCateogry: self.selectedCategory)
            
             if(videoAlreadySaved(videoArray, vid: video)) {
                 return
@@ -213,7 +219,7 @@ class PlayVideoViewController: UIViewController {
             let encodedData = NSKeyedArchiver.archivedDataWithRootObject(videoArray)
             defaults.setObject(encodedData, forKey: "savedVideos")
             defaults.synchronize()
-            HUD.flash(.Success, delay: 1.0)
+            HUD.flash(.LabeledSuccess(title: "", subtitle: "Saved!"), delay: 1.0)
 
             
             

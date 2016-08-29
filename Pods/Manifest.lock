@@ -1,15 +1,21 @@
 PODS:
   - Alamofire (3.4.1)
+  - MBProgressHUD (0.9.2)
   - PKHUD (3.1.0)
+  - YouTubePlayer (0.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
+  - MBProgressHUD
   - PKHUD
+  - YouTubePlayer
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   PKHUD: 4167eccdb1b3a892fd80ce2b51cb6ba412a889ab
+  YouTubePlayer: 88713a96c356f2c88da8925eb61438eda88bcd57
 
-PODFILE CHECKSUM: c758422674ed1ee39202b31cd74bfc294327a1dc
+PODFILE CHECKSUM: 58ef347cbd71829bb7e8cfb709080df3f8f48bf7
 
 COCOAPODS: 1.0.1

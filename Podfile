@@ -5,4 +5,6 @@ use_frameworks!
 target 'TheYouTubeShuffler' do
 pod 'Alamofire', '~> 3.4'
 pod "PKHUD"
+pod 'YouTubePlayer'
+pod 'MBProgressHUD'
 end
