@@ -42,7 +42,7 @@ class SavedVideosViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         // Do any additional setup after loading the view.
-    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -101,3 +101,4 @@ class SavedVideosViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
 }
+
