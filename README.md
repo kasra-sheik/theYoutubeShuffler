@@ -8,6 +8,6 @@ Welcome to The Youtube Shuffler! An iPhone application that allows you to random
 #Installation and Build Process
 Building The Youtube Shuffler is pretty easy. Assuming you have Cocoapods installed, all you need to do is install the pods and run the project. 
 
-    ![Alt text]+1. Navigate to '../TheYoutubeShuffler'
-    ![Alt text]+2. Run 'pod install' to install the necessary dependencies to build
-    ![Alt text]+3. Run the project in Xcode
+    !+1. Navigate to '../TheYoutubeShuffler'
+    !+2. Run 'pod install' to install the necessary dependencies to build
+    !+3. Run the project in Xcode
