@@ -12,3 +12,8 @@ Building The Youtube Shuffler is pretty easy. Assuming you have Cocoapods instal
     +1. Navigate to '../TheYoutubeShuffler'
     +2. Run 'pod install' to install the necessary dependencies to build
     +3. Run the project in Xcode
+
+
+#Closing Remarks
+
+I hope you have fun messing around with this application! email ytshufflerdev@gmail.com for any further questions or concerns. Happy Shuffling!
