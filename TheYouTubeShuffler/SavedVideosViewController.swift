@@ -21,81 +21,71 @@ class SavedVideosViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        noSavedLabel.hidden = true
+        noSavedLabel.isHidden = true
         
         
         self.automaticallyAdjustsScrollViewInsets = false
 
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        if(userDefaults.objectForKey("savedVideos") != nil) {
-            let decoded  = userDefaults.objectForKey("savedVideos") as! NSData
-            let videoArray = NSKeyedUnarchiver.unarchiveObjectWithData(decoded) as! [Video]
+        let userDefaults = UserDefaults.standard
+        if(userDefaults.object(forKey: "savedVideos") != nil) {
+            let decoded  = userDefaults.object(forKey: "savedVideos") as! Data
+            let videoArray = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Video]
             self.videos = videoArray
             if(videos?.count == nil) {
-                noSavedLabel.hidden = false
-                tableView.hidden = true
-            }
-            else {
-                print("No Saved Videos..")
-            }
-                
+                noSavedLabel.isHidden = false
+                tableView.isHidden = true
             }
         }
-        // Do any additional setup after loading the view.
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Do any additional setup after loading the view.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(videos != nil) {
             return (self.videos?.count)!
         }
-        noSavedLabel.hidden = false
-        self.tableView.hidden = true
+        noSavedLabel.isHidden = false
+        self.tableView.isHidden = true
         return 0
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("savedVideoCell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "savedVideoCell")
       
-        cell?.textLabel?.text = self.videos![indexPath.row].videoTitle
+        cell?.textLabel?.text = self.videos![(indexPath as NSIndexPath).row].videoTitle
         cell?.textLabel?.font = UIFont(name: "Avenir", size: 12)
         cell?.textLabel?.numberOfLines = 2
-        cell?.detailTextLabel?.text = "\tCategory: " + self.videos![indexPath.row].videoCateogry
+        cell?.detailTextLabel?.text = "\tCategory: " + self.videos![(indexPath as NSIndexPath).row].videoCateogry
 
-        let videoThumbnailString = "https://i1.ytimg.com/vi/" + self.videos![indexPath.row].videoId + "/mqdefault.jpg"
+        let videoThumbnailString = "https://i1.ytimg.com/vi/" + self.videos![(indexPath as NSIndexPath).row].videoId + "/mqdefault.jpg"
         
-        let url = NSURL(string: videoThumbnailString)
-        let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+        let url = URL(string: videoThumbnailString)
+        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
         cell?.imageView!.image = UIImage(data: data!)
     
         return cell!
     }
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
         return true
     }
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            videos?.removeAtIndex(indexPath.row)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            videos?.remove(at: (indexPath as NSIndexPath).row)
             self.tableView.reloadData()
-            let userDefaults = NSUserDefaults.standardUserDefaults()
-            let encodedData = NSKeyedArchiver.archivedDataWithRootObject(videos!)
-            userDefaults.setObject(encodedData, forKey: "savedVideos")
+            let userDefaults = UserDefaults.standard
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: videos!)
+            userDefaults.set(encodedData, forKey: "savedVideos")
             userDefaults.synchronize()
 
             
         }
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.selectedVideoId = self.videos![indexPath.row].videoId
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedVideoId = self.videos![(indexPath as NSIndexPath).row].videoId
 
-        self.performSegueWithIdentifier("showSavedVideo", sender: self)
+        self.performSegue(withIdentifier: "showSavedVideo", sender: self)
 
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let playSavedVideo = segue.destinationViewController as! PlaySavedVideoViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let playSavedVideo = segue.destination as! PlaySavedVideoViewController
         
         playSavedVideo.videoId = self.selectedVideoId
         

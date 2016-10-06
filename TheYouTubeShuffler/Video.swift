@@ -25,16 +25,16 @@ class Video: NSObject, NSCoding {
     }
     
     required convenience init(coder aDecoder: NSCoder) {
-        let videoId = aDecoder.decodeObjectForKey("videoId") as! String
-        let videoTitle = aDecoder.decodeObjectForKey("videoTitle") as! String
-        let videoCategory = aDecoder.decodeObjectForKey("videoCategory") as! String
+        let videoId = aDecoder.decodeObject(forKey: "videoId") as! String
+        let videoTitle = aDecoder.decodeObject(forKey: "videoTitle") as! String
+        let videoCategory = aDecoder.decodeObject(forKey: "videoCategory") as! String
         self.init(videoId: videoId, videoTitle: videoTitle, videoCateogry: videoCategory)
 
     }
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(videoId, forKey: "videoId")
-        aCoder.encodeObject(videoTitle, forKey: "videoTitle")
-        aCoder.encodeObject(videoCateogry, forKey: "videoCategory")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(videoId, forKey: "videoId")
+        aCoder.encode(videoTitle, forKey: "videoTitle")
+        aCoder.encode(videoCateogry, forKey: "videoCategory")
 
     }
     

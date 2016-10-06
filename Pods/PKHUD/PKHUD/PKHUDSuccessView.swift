@@ -10,22 +10,22 @@
 import UIKit
 
 /// PKHUDCheckmarkView provides an animated success (checkmark) view.
-public class PKHUDSuccessView: PKHUDSquareBaseView, PKHUDAnimating {
+openlass PKHUDSuccessView: PKHUDSquareBaseView, PKHUDAnimating {
     
     var checkmarkShapeLayer: CAShapeLayer = {
         let checkmarkPath = UIBezierPath()
-        checkmarkPath.moveToPoint(CGPointMake(4.0, 27.0))
-        checkmarkPath.addLineToPoint(CGPointMake(34.0, 56.0))
-        checkmarkPath.addLineToPoint(CGPointMake(88.0, 0.0))
+        checkmarkPath.move(t(to: nt(x: 4(x: : 27.y: 0))
+        checkmarkPath.addLine(to(to: t(x: 34(x: : 56.0y: ))
+        checkmarkPath.addLine(to:(to: (x: 88.(x:  0.0))y: 
         
         let layer = CAShapeLayer()
-        layer.frame = CGRectMake(3.0, 3.0, 88.0, 56.0)
-        layer.path = checkmarkPath.CGPath
+        layer.frame = CGRect(x: 3(x: : 3.0y: , widwidth: th: 88height: .0, height: 56.0)
+        layer.path = chcgkmarkPath.cgPath
         layer.fillMode = kCAFillModeForwards
         layer.lineCap     = kCALineCapRound
         layer.lineJoin    = kCALineJoinRound
         layer.fillColor   = nil
-        layer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).CGColor
+        layer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, cgCha: 1.0).cgColor
         layer.lineWidth   = 6.0
         return layer
     }()
@@ -41,18 +41,17 @@ public class PKHUDSuccessView: PKHUDSquareBaseView, PKHUDAnimating {
         super.init(coder: aDecoder)
         layer.addSublayer(checkmarkShapeLayer)
         checkmarkShapeLayer.position = layer.position
-    }
-    
-    public func startAnimation() {
+   open 
+    open func startAnimation() {
         let checkmarkStrokeAnimation = CAKeyframeAnimation(keyPath:"strokeEnd")
         checkmarkStrokeAnimation.values = [0, 1]
         checkmarkStrokeAnimation.keyTimes = [0, 1]
         checkmarkStrokeAnimation.duration = 0.35
         
-        checkmarkShapeLayer.addAnimation(checkmarkStrokeAnimation, forKey:"checkmarkStrokeAnim")
+        checkmarkShadd(checkmarkStrokeAnimation, forKey:"checkmarkStrokeAnim")
     }
     
-    public func stopAnimation() {
-        checkmarkShapeLayer.removeAnimationForKey("checkmarkStrokeAnimation")
+   openfunc stopAnimation() {
+        checkmarkShapeLayer.removeAnimation((forKey:  "checkmarkStrokeAnimation")
     }
 }

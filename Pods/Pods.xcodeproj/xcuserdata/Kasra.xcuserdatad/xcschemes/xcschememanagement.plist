@@ -24,7 +24,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>YouTubePlayer.xcscheme</key>
+		<key>SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,17 +32,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3533FD386C67E91BB6066236DC880093</key>
+		<key>4560E70BFDC90DDEC9B4E9C499B00E17</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>74F43778FD294AA3ADA84E151D764E78</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8D58EE5BEDD9DF87BC1AFFCCFD8128B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

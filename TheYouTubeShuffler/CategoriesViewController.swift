@@ -38,10 +38,7 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         imagesArray.append((UIImage(named: "Animals.png")!))
         imagesArray.append((UIImage(named: "Popular.png")!))
         imagesArray.append((UIImage(named: "Random.png")!))
-    
-//        self.tabBar.tintColor = UIColor(red: 204/255.0, green: 24/255.0, blue: 30/255.0, alpha: 1)
-
-        
+            
         // Do any additional setup after loading the view.
     }
 
@@ -49,47 +46,47 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return (self.view.frame.size.width / 320) * 72
           return (self.view.frame.size.width / 320) * 67.5
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoriesArray.count
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("category")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "category")
         
-        cell!.textLabel!.text = categoriesArray[indexPath.row]
-        cell?.imageView?.image = imagesArray[indexPath.row]
+        cell!.textLabel!.text = categoriesArray[(indexPath as NSIndexPath).row]
+        cell?.imageView?.image = imagesArray[(indexPath as NSIndexPath).row]
         
         return cell!
         
         
     }
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         //original font size22
         cell.textLabel!.font = UIFont(name:"Avenir", size:19)
-        cell.textLabel?.textColor = UIColor.blackColor()
+        cell.textLabel?.textColor = UIColor.black
 
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedCategory = categoriesArray[indexPath.row]
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCategory = categoriesArray[(indexPath as NSIndexPath).row]
 
-        self.performSegueWithIdentifier("showVideo", sender: self)
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        self.performSegue(withIdentifier: "showVideo", sender: self)
+        self.tableView.deselectRow(at: indexPath, animated: false)
     }
-    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if(item.tag == 1) {
-            self.performSegueWithIdentifier("myVideos", sender: self)
+            self.performSegue(withIdentifier: "myVideos", sender: self)
         }
         else if(item.tag == 2) {
-            self.performSegueWithIdentifier("moreInfo", sender: nil)
+            self.performSegue(withIdentifier: "moreInfo", sender: nil)
         }
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showVideo") {
-            let videoPage = segue.destinationViewController as! PlayVideoViewController
+            let videoPage = segue.destination as! PlayVideoViewController
             videoPage.selectedCategory = selectedCategory
         }
     }

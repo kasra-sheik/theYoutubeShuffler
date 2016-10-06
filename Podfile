@@ -3,8 +3,8 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'TheYouTubeShuffler' do
-pod 'Alamofire', '~> 3.4'
-pod "PKHUD"
-pod 'YouTubePlayer'
+pod 'Alamofire'
+pod 'PKHUD'
 pod 'MBProgressHUD'
+pod 'SVProgressHUD'
 end

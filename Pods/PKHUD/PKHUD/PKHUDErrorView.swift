@@ -10,24 +10,24 @@
 import UIKit
 
 /// PKHUDErrorView provides an animated error (cross) view.
-public class PKHUDErrorView: PKHUDSquareBaseView, PKHUDAnimating {
+openlass PKHUDErrorView: PKHUDSquareBaseView, PKHUDAnimating {
     
     var dashOneLayer = PKHUDErrorView.generateDashLayer()
     var dashTwoLayer = PKHUDErrorView.generateDashLayer()
     
-    class func generateDashLayer() -> CAShapeLayer {
+    func generateDashLayer() -> CAShapeLayer {
         let dash = CAShapeLayer()
-        dash.frame = CGRectMake(0.0, 0.0, 88.0, 88.0)
+        dash.frame = CGRect(x(x: , y: y: 0.0, width: width:height:  88.0, height: 88.0)
         dash.path = {
             let path = UIBezierPath()
-            path.moveToPoint(CGPointMake(0.0, 44.0))
-            path.addLineToPoint(CGPointMake(88.0, 44.0))
-            return path.CGPath
+      (to: th.move(x: CGPoiy: nt(x: 0.0, y: 44.0))
+          (to: ddLine((x: GPointy: (x: 88.0, y: 44.0))
+           cgeturn path.cgPath
         }()
         dash.lineCap     = kCALineCapRound
         dash.lineJoin    = kCALineJoinRound
         dash.fillColor   = nil
-        dash.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).CGColor
+        dash.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15,cgCpha: 1.0).cgColor
         dash.lineWidth   = 6
         dash.fillMode    = kCAFillModeForwards
         return dash
@@ -49,7 +49,7 @@ public class PKHUDErrorView: PKHUDSquareBaseView, PKHUDAnimating {
         dashTwoLayer.position = layer.position
     }
     
-    func rotationAnimation(angle: CGFloat) -> CABasicAnimation {
+    func rotat_ ionAnimation(_ angle: CGFloat) -> CABasicAnimation {
         var animation : CABasicAnimation
         if #available(iOS 9.0, *) {
             let springAnimation = CASpringAnimation(keyPath:"transform.rotation.z")
@@ -75,12 +75,12 @@ public class PKHUDErrorView: PKHUDSquareBaseView, PKHUDAnimating {
         dashOneLayer.transform = CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0.0, 0.0, 1.0)
         dashTwoLayer.transform = CATransform3DMakeRotation(45 * CGFloat(M_PI/180), 0.0, 0.0, 1.0)
         
-        dashOneLayer.addAnimation(dashOneAnimation, forKey: "dashOneAnimation")
-        dashTwoLayer.addAnimation(dashTwoAnimation, forKey: "dashTwoAnimation")
+        der.add(dashOneAnimation, forKey: "dashOneAnimation")
+        dashTwoLadshTwoAnimation, forKey: "dashTwoAnimation")
     }
 
     func stopAnimation() {
-        dashOneLayer.removeAnimationForKey("dashOneAnimation")
-        dashTwoLayer.removeAnimationForKey("dashTwoAnimation")
+        dashOneLayer.removeAnimation(fo(fKey: _: dashOneAnimation")
+        dashTwoLayer.removeAnimation((forKey:  "dashTwoAnimation")
     }
 }

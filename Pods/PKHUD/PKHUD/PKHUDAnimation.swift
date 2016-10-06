@@ -15,34 +15,33 @@ public final class PKHUDAnimation {
     static let discreteRotation: CAAnimation = {
         let animation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
         animation.values = [
-            NSNumber(float: 0.0),
-            NSNumber(float: 1.0 * Float(M_PI) / 6.0),
-            NSNumber(float: 2.0 * Float(M_PI) / 6.0),
-            NSNumber(float: 3.0 * Float(M_PI) / 6.0),
-            NSNumber(float: 4.0 * Float(M_PI) / 6.0),
-            NSNumber(float: 5.0 * Float(M_PI) / 6.0),
-            NSNumber(float: 6.0 * Float(M_PI) / 6.0),
-            NSNumber(float: 7.0 * Float(M_PI) / 6.0),
-            NSNumber(float: 8.0 * Float(M_PI) / 6.0),
-            NSNumber(float: 9.0 * Float(M_PI) / 6.0),
-            NSNumber(float: 10.0 * Float(M_PI) / 6.0),
-            NSNumber(float: 11.0 * Float(M_PI) / 6.0),
-            NSNumber(float: 2.0 * Float(M_PI))
+            NSNumber(value: 0.0 as Float as Float),
+            valueber(value: 1.0 * Float(M_ as FloatPI) / 6.0 as Float),
+   value    NSNumber(value: 2.0 * as Float Float(M_PI) / 6.0 as Flvalue
+            NSNumber(val as Floatue: 3.0 * Float(M_PI) / values Float),
+            NSN as Floatumber(value: 4.0 * Floatvalue) / 6.0 as Float),
+       as Float      NSNumber(value: 5.valueloat(M_PI) / 6.0 as Float as Float),
+            NSNumber(value: 6.0 * Float(M_PI) / 6.0 as Float as Float),
+            valueber(value: 7.0 * Float(M_ as FloatPI) / 6.0 as Float),
+   value    NSNumber(value: 8.0 * as Float Float(M_PI) / 6.0 as Flvalue
+            NSNumber(valu as Floate: 9.0 * Float(M_PI) / 6value Float),
+            NSNum as Floatber(value: 10.0 * Float(value / 6.0 as Float),
+  as Float           NSNumber(value: 11.0 * Float(M_PI) / 6.0 as Float),
+ value      as Float NSNumber(value: 2.0 * FvalueM_PI) as Flo as Floatat)
         ]
-        animation.keyTimes = [
-            NSNumber(float: 0.0),
-            NSNumber(float: 1.0 / 12.0),
-            NSNumber(float: 2.0 / 12.0),
-            NSNumber(float: 3.0 / 12.0),
-            NSNumber(float: 4.0 / 12.0),
-            NSNumber(float: 5.0 / 12.0),
-            NSNumber(float: 0.5),
-            NSNumber(float: 7.0 / 12.0),
-            NSNumber(float: 8.0 / 12.0),
-            NSNumber(float: 9.0 / 12.0),
-            NSNumber(float: 10.0 / 12.0),
-            NSNumber(float: 11.0 / 12.0),
-            NSNumber(float: 1.0)
+        anvalueon.keyTimes  as Float = [
+            NSNumbervaluee: 0.0 as Fl as Floatoat),
+            NSNumbvaluelue: 1.0 / 1 as Float2.0 as Float),
+         valueNumber(value as Float: 2.0 / 12.0 as Float),
+value      as Float  NSNumber(value: 3.0 / valueas Float),
+  as Float           NSNumber(valuvalue0 / 12.0 as  as FloatFloat),
+            NSNuvaluevalue: 5.0 / as Float 12.0 as Float),
+       valueNSNumber(valu as Floate: 0.5 as Float),
+      value NSNumber(val as Floatue: 7.0 / 12.0 as Float)value      as Float    NSNumber(value: 8.0 / 12.0 as Float),
+            NSNumber(value: 9.0 / 12.0 as Float),
+            NSNumber(value: 10.0 / 12.0 as Float),
+            NSNumber(value: 11.0 / 12.0 as Float),
+            NSNumber(value: 1.0 as Float)
         ]
         animation.duration = 1.2
         animation.calculationMode = "discrete"

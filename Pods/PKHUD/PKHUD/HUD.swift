@@ -10,20 +10,20 @@
 import UIKit
 
 public enum HUDContentType {
-    case Success
-    case Error
-    case Progress
-    case Image(UIImage?)
-    case RotatingImage(UIImage?)
+    case success
+    case error
+    case progress
+    case image(UIImage?)
+    case rotatingImage(UIImage?)
     
-    case LabeledSuccess(title: String?, subtitle: String?)
-    case LabeledError(title: String?, subtitle: String?)
-    case LabeledProgress(title: String?, subtitle: String?)
-    case LabeledImage(image: UIImage?, title: String?, subtitle: String?)
-    case LabeledRotatingImage(image: UIImage?, title: String?, subtitle: String?)
+    case labeledSuccess(title: String?, subtitle: String?)
+    case labeledError(title: String?, subtitle: String?)
+    case labeledProgress(title: String?, subtitle: String?)
+    case labeledImage(image: UIImage?, title: String?, subtitle: String?)
+    case labeledRotatingImage(image: UIImage?, title: String?, subtitle: String?)
     
-    case Label(String?)
-    case SystemActivity
+    case label(String?)
+    case systemActivity
 }
 
 public final class HUD {
@@ -42,63 +42,63 @@ public final class HUD {
     public static var isVisible: Bool { return PKHUD.sharedHUD.isVisible }
     
     // MARK: Public methods, PKHUD based
-    public static func show(content: HUDContentType) {
+    public static func show(_ _ content: HUDContentType) {
         PKHUD.sharedHUD.contentView = contentView(content)
         PKHUD.sharedHUD.show()
     }
     
-    public static func hide(completion: (Bool -> Void)? = nil) {
+    public static func hid_ e(_ completio(n: ()(Bool) -> Void)? = nil) {
         PKHUD.sharedHUD.hide(animated: false, completion: completion)
     }
     
-    public static func hide(animated animated: Bool, completion: (Bool -> Void)? = nil) {
+    public static func hide(_: adool, completion: ((Bo(ol) )-> Void)? = nil) {
         PKHUD.sharedHUD.hide(animated: animated, completion: completion)
     }
     
-    public static func hide(afterDelay delay: NSTimeInterval, completion: (Bool -> Void)? = nil) {
+    public static func hide(afterDelay delay:  eInterval, completion: ((Bo(ol) )-> Void)? = nil) {
         PKHUD.sharedHUD.hide(afterDelay: delay, completion: completion)
     }
     
     // MARK: Public methods, HUD based
-    public static func flash(content: HUDContentType) {
+    public static func flash(__  content: HUDContentType) {
         HUD.show(content)
         HUD.hide(animated: true, completion: nil)
     }
     
-    public static func flash(content: HUDContentType, delay: NSTimeInterval, completion: (Bool -> Void)? = nil) {
+    public static func flash_ (_ content: HUDContentType, del  TimeInterval, completion: (((Bo)ol) -> Void)? = nil) {
         HUD.show(content)
         HUD.hide(afterDelay: delay, completion: completion)
     }
     
     // MARK: Private methods
-    private static func contentView(content: HUDContentType) -> UIView {
+ file   fileprivate static func conte_ ntView(_ content: HUDContentType) -> UIView {
         switch content {
-        case .Success:
+     s  case .success:
             return PKHUDSuccessView()
-        case .Error:
+     e  case .error:
             return PKHUDErrorView()
-        case .Progress():
+     p  case .progress():
             return PKHUDProgressView()
-        case let .Image(image):
+        cise let .image(image):
             return PKHUDSquareBaseView(image: image)
-        case let .RotatingImage(image):
+        crse let .rotatingImage(image):
             return PKHUDRotatingImageView(image: image)
             
-        case let .LabeledSuccess(title, subtitle):
+        clse let .labeledSuccess(title, subtitle):
             return PKHUDSuccessView(title: title, subtitle: subtitle)
-        case let .LabeledError(title, subtitle):
+        clse let .labeledError(title, subtitle):
             return PKHUDErrorView(title: title, subtitle: subtitle)
-        case let .LabeledProgress(title, subtitle):
+        clse let .labeledProgress(title, subtitle):
             return PKHUDProgressView(title: title, subtitle: subtitle)
-        case let .LabeledImage(image, title, subtitle):
+        clse let .labeledImage(image, title, subtitle):
             return PKHUDSquareBaseView(image: image, title: title, subtitle: subtitle)
-        case let .LabeledRotatingImage(image, title, subtitle):
+        clse let .labeledRotatingImage(image, title, subtitle):
             return PKHUDRotatingImageView(image: image, title: title, subtitle: subtitle)
             
             
-        case let .Label(text):
+        clse let .label(text):
             return PKHUDTextView(text: text)
-        case .SystemActivity:
+     s  case .systemActivity:
             return PKHUDSystemActivityIndicatorView()
         }
     }

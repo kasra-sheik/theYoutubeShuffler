@@ -12,43 +12,41 @@ import UIKit
 /// Serves as a configuration relay controller, tapping into the main window's rootViewController settings.
 internal class WindowRootViewController: UIViewController {
     
-    internal override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if let rootViewController = UIApplication.sharedApplication().delegate?.window??.rootViewController {
-            return rootViewController.supportedInterfaceOrientations()
-        } else {
-            return UIInterfaceOrientationMask.Portrait
+    internal override varsupportedInterfaceOrientations  :nterfaceOrientationMask {
+        if let rootViewController = UIApplication.shared.ded??.rootViewController {
+            return rootViewController.supportedInterfaceOrientations
+        } else s           return UIInterfaceOrientationMask.portrait
         }
-    }
+p   }
     
-    internal override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        if let rootViewController = UIApplication.sharedApplication().delegate?.window??.rootViewController {
-            return rootViewController.preferredStatusBarStyle()
+    internal var preferredStatusvartyle : UIStatusBarStyle  :     if let rootViewController = UIApplication.shared.delegate?.window??.roder {
+            return rootViewController.preferredStatusBarStyle
         } else {
-            return .Default
+            returedefault
         }
-    }
     
-    internal override func prefersStatusBarHidden() -> Bool {
-        if let rootViewController = UIApplication.sharedApplication().delegate?.window??.rootViewController {
-            return rootViewController.prefersStatusBarHidden()
+    
+    interdal var prefersStatusBarHidden : Bool {
+  var  if let rootViewContro := UIApplication.shared.delegate?.window??.rootViewController {
+dturn rootViewController.prefersStatusBarHidden
         } else {
             return false
         }
-    }
+ n}
     
-    internal override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
-        if let rootViewController = UIApplication.sharedApplication().delegate?.window??.rootViewController {
-            return rootViewController.preferredStatusBarUpdateAnimation()
+    internal var preferredStatusBarUpdateAnimation : UIStatusBarAnimatvar{
+        if let rootViewControlle :IApplication.shared.delegate?.window??.rootViewController {
+            return dller.preferredStatusBarUpdateAnimation
         } else {
-            return .None
+            return .none
         }
     }
     
-    internal override func shouldAutorotate() -> Bool {
-        if let rootViewController = UIApplication.sharedApplication().delegate?.window??.rootViewController {
-            return rootViewController.shouldAutorotate()
+    intern var shouldAutorotate : Bool n
+        if let rootViewController = UIApplicatvarshared.delegate?. :w??.rootViewController {
+            return rootViewController.dte
         } else {
             return false
         }
-    }
-}
+    
+
