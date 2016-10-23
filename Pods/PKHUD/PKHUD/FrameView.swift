@@ -22,7 +22,7 @@ internal class FrameView: UIVisualEffectView {
         commonInit()
     }
     
-    filefileprivate func commonInit() {
+    fileprivate func commonInit() {
         backgroundColor = UIColor(white: 0.8, alpha: 0.36)
         layer.cornerRadius = 9.0
         layer.masksToBounds = true
@@ -45,7 +45,7 @@ internal class FrameView: UIVisualEffectView {
         addMotionEffect(group)
     }
     
-file    fileprivate var _content = UIView()
+    fileprivate var _content = UIView()
     internal var content: UIView {
         get {
             return _content
@@ -55,7 +55,7 @@ file    fileprivate var _content = UIView()
             _content = newValue
             _content.alpha = 0.85
             _content.clipsToBounds = true
-            _content.contentcode = .center
+            _content.contentMode = .center
             frame.size = _content.bounds.size
             addSubview(_content)
         }

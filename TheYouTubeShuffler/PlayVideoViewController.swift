@@ -1,4 +1,3 @@
-
 //
 //  PlayVideoViewController.swift
 //  TheYouTubeShuffler
@@ -10,6 +9,7 @@
 import UIKit
 import Alamofire
 import PKHUD
+import SwiftyJSON
 
 class PlayVideoViewController: UIViewController {
     
@@ -65,19 +65,20 @@ class PlayVideoViewController: UIViewController {
         
         //grab info from server
         if(selectedCategory == "Funny") {
-            Alamofire.request(.GET, "https://id-generator.herokuapp.com/funny").responseJSON { response in
-                
+            Alamofire.request("https://id-generator.herokuapp.com/funny").responseJSON { response in
+                let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
-                    self.youtubeId = JSON["id"] as! String
+                    self.youtubeId = json["id"].stringValue
                     self.loadVideo(self.youtubeId)
 
                 }
             }
         }
         else if(selectedCategory == "Sports") {
-            Alamofire.request(.GET, "https://id-generator.herokuapp.com/sports").responseJSON { response in
+            Alamofire.request("https://id-generator.herokuapp.com/sports").responseJSON { response in
+                let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
-                    self.youtubeId = JSON["id"] as! String
+                    self.youtubeId = json["id"].stringValue
                     self.loadVideo(self.youtubeId)
                     
                 }
@@ -86,9 +87,10 @@ class PlayVideoViewController: UIViewController {
             
         }
         else if(selectedCategory == "Science and Technology") {
-            Alamofire.request(.GET, "https://id-generator.herokuapp.com/science").responseJSON { response in
+            Alamofire.request("https://id-generator.herokuapp.com/science").responseJSON { response in
+                let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
-                    self.youtubeId = JSON["id"] as! String
+                    self.youtubeId = json["id"].stringValue
                     self.loadVideo(self.youtubeId)
                     
                 }
@@ -97,36 +99,40 @@ class PlayVideoViewController: UIViewController {
             
         }
         else if(selectedCategory == "Music") {
-            Alamofire.request(.GET, "https://id-generator.herokuapp.com/music").responseJSON { response in
+            Alamofire.request("https://id-generator.herokuapp.com/music").responseJSON { response in
+                let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
-                    self.youtubeId = JSON["id"] as! String
+                    self.youtubeId = json["id"].stringValue
                     self.loadVideo(self.youtubeId)
                     
                 }
             }
         }
         else if(selectedCategory == "Animals") {
-            Alamofire.request(.GET, "https://id-generator.herokuapp.com/animals").responseJSON { response in
+            Alamofire.request("https://id-generator.herokuapp.com/animals").responseJSON { response in
+                let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
-                    self.youtubeId = JSON["id"] as! String
+                    self.youtubeId = json["id"].stringValue
                     self.loadVideo(self.youtubeId)
                     
                 }
             }
         }
         else if(selectedCategory == "Popular") {
-            Alamofire.request(.GET, "https://id-generator.herokuapp.com/popular").responseJSON { response in
+            Alamofire.request("https://id-generator.herokuapp.com/popular").responseJSON { response in
+                let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
-                    self.youtubeId = JSON["id"] as! String
+                    self.youtubeId = json["id"].stringValue
                     self.loadVideo(self.youtubeId)
                     
                 }
             }
         }
         else if(selectedCategory == "Random") {
-            Alamofire.request(.GET, "https://id-generator.herokuapp.com/random").responseJSON { response in
+            Alamofire.request("https://id-generator.herokuapp.com/random").responseJSON { response in
+                let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
-                    self.youtubeId = JSON["id"] as! String
+                    self.youtubeId = json["id"].stringValue
                     self.loadVideo(self.youtubeId)
                     
                 }
@@ -144,12 +150,14 @@ class PlayVideoViewController: UIViewController {
         self.videoPlayer.loadHTMLString(videoEmbedString, baseURL: nil)
         
         //load title and description
-        Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=AIzaSyDd7fUh3e5ylq-0Wv92mkyxaXbm07lm1Fc").responseJSON { response in
-            
+        Alamofire.request("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=AIzaSyDd7fUh3e5ylq-0Wv92mkyxaXbm07lm1Fc").responseJSON { response in
+            let json = JSON(data: response.data!)
+
             if let JSON = response.result.value {
-                if(JSON["items"]!!.count > 0) {
-                    self.videoTitle = JSON["items"]!![0]["snippet"]!!["title"] as! String
-                    self.videoDescription = JSON["items"]!![0]["snippet"]!!["description"] as! String
+                if(json["items"].count > 0) {
+                    self.videoTitle = json["items"][0]["snippet"]["title"].stringValue
+                    self.videoDescription = json["items"][0]["snippet"]["description"].stringValue
+                    
                 }
                 
             }

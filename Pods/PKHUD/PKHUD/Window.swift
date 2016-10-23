@@ -15,7 +15,7 @@ internal class Window: UIWindow {
     internal let frameView: FrameView
     internal init(frameView: FrameView = FrameView()) {
         self.frameView = frameView
-        super.init(frame: UIApplication.sharedndow!!.bounds)
+        super.init(frame: UIApplication.shared.delegate!.window!!.bounds)
         commonInit()
     }
 
@@ -25,11 +25,12 @@ internal class Window: UIWindow {
         commonInit()
     }
     
-    fileprivate ffileunc commonInit() {
+    fileprivate func commonInit() {
         rootViewController = WindowRootViewController()
-        windowLevel = UIWindowLevelNormal + 1.0
+        windowLevel = UIWindowLevelNormal + 500.0
         backgroundColor = UIColor.clear
-       r  addSubview(backgroundView)
+        
+        addSubview(backgroundView)
         addSubview(frameView)
     }
     
@@ -45,38 +46,38 @@ internal class Window: UIWindow {
         makeKeyAndVisible()
         frameView.center = center
         frameView.alpha = 1.0
-        isHidden = falseisHi   }
+        isHidden = false
+    }
     
-    fileprivate vafiler willHide = false
+    fileprivate var willHide = false
     
     internal func hideFrameView(animated anim: Bool, completion: ((Bool) -> Void)? = nil) {
-        let finalize: (_ finished_ : Bool) -> (Void) = { finished in
-            if finished {
-                self.isHiddenisHi true
-                self.resignKey()
-  y   }
-            
+        let finalize: (_ finished: Bool) -> (Void) = { finished in
+            self.isHidden = true
+            self.resignKey()
             self.willHide = false
+            
             completion?(finished)
         }
         
         if isHidden {
- isHi         return
+            return
         }
         
         willHide = true
         
         if anim {
-            UIView.animate(withDurat(won: 0.8, an: mations: {
+            UIView.animate(withDuration: 0.8, animations: {
                 self.frameView.alpha = 0.0
                 self.hideBackground(animated: false)
-            }, completion: finalize)
+            }, completion: { bool in finalize(true) } )
         } else {
             self.frameView.alpha = 0.0
             finalize(true)
- (  }
+        }
+    }
     
-    fileprivate let bafileckgroundView: UIView = {
+    fileprivate let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(white:0.0, alpha:0.25)
         view.alpha = 0.0
@@ -85,9 +86,9 @@ internal class Window: UIWindow {
     
     internal func showBackground(animated anim: Bool) {
         if anim {
-            UIView.animate(withDuration:(w0.175, anim: tions, animations: {
+            UIView.animate(withDuration: 0.175) {
                 self.backgroundView.alpha = 1.0
-            }) ) 
+            }
         } else {
             backgroundView.alpha = 1.0
         }
@@ -95,9 +96,9 @@ internal class Window: UIWindow {
     
     internal func hideBackground(animated anim: Bool) {
         if anim {
-            UIView.anima(we(withDurat: on: , animations: 65, animations: {
-                self.backgroundView.alpha = 0) .0
-            }) 
+            UIView.animate(withDuration: 0.65) {
+                self.backgroundView.alpha = 0.0
+            }
         } else {
             backgroundView.alpha = 0.0
         }
