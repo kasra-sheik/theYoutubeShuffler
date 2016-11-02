@@ -28,7 +28,6 @@ class PlayVideoViewController: UIViewController {
       @IBOutlet weak var heightLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var videoPlayer: UIWebView!
     //to help with load on start up issues
-    var firstLoad:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +35,12 @@ class PlayVideoViewController: UIViewController {
         self.title = selectedCategory
         self.videoPlayer.backgroundColor = UIColor.gray
         self.shuffle.backgroundColor = UIColor(red: 102/255.0, green: 102/255.0, blue: 102/255.0, alpha: 1)
-//        titleLabel.hidden = true
-//        descriptionLabel.hidden = true
-//        descriptionTextBox.hidden = true
+
         videoText.isHidden = true
         shuffle.titleLabel?.font = UIFont(name:"Avenir", size:22)
         save.titleLabel?.font = UIFont(name:"Avenir", size:22)
         self.videoText.isEditable = false
         self.save.isEnabled = false
-//        self.generate(shuffle)
         
     
         
@@ -57,11 +53,7 @@ class PlayVideoViewController: UIViewController {
     @IBAction func generate(_ sender: AnyObject) {
         print("Shuffling..")
         self.greetingLabel.isHidden = true
-        if(self.firstLoad == true) {
-            HUD.flash(.labeledProgress(title: "Loading", subtitle: ""))
-            
-        }
-
+    
         
         //grab info from server
         if(selectedCategory == "Funny") {
@@ -69,6 +61,8 @@ class PlayVideoViewController: UIViewController {
                 let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
                     self.youtubeId = json["id"].stringValue
+                    self.videoTitle = json["title"].stringValue
+                    self.videoDescription = json["description"].stringValue
                     self.loadVideo(self.youtubeId)
 
                 }
@@ -79,6 +73,8 @@ class PlayVideoViewController: UIViewController {
                 let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
                     self.youtubeId = json["id"].stringValue
+                    self.videoTitle = json["title"].stringValue
+                    self.videoDescription = json["description"].stringValue
                     self.loadVideo(self.youtubeId)
                     
                 }
@@ -91,6 +87,8 @@ class PlayVideoViewController: UIViewController {
                 let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
                     self.youtubeId = json["id"].stringValue
+                    self.videoTitle = json["title"].stringValue
+                    self.videoDescription = json["description"].stringValue
                     self.loadVideo(self.youtubeId)
                     
                 }
@@ -103,6 +101,8 @@ class PlayVideoViewController: UIViewController {
                 let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
                     self.youtubeId = json["id"].stringValue
+                    self.videoTitle = json["title"].stringValue
+                    self.videoDescription = json["description"].stringValue
                     self.loadVideo(self.youtubeId)
                     
                 }
@@ -113,6 +113,8 @@ class PlayVideoViewController: UIViewController {
                 let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
                     self.youtubeId = json["id"].stringValue
+                    self.videoTitle = json["title"].stringValue
+                    self.videoDescription = json["description"].stringValue
                     self.loadVideo(self.youtubeId)
                     
                 }
@@ -123,6 +125,8 @@ class PlayVideoViewController: UIViewController {
                 let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
                     self.youtubeId = json["id"].stringValue
+                    self.videoTitle = json["title"].stringValue
+                    self.videoDescription = json["description"].stringValue
                     self.loadVideo(self.youtubeId)
                     
                 }
@@ -133,6 +137,8 @@ class PlayVideoViewController: UIViewController {
                 let json = JSON(data: response.data!)
                 if let JSON = response.result.value {
                     self.youtubeId = json["id"].stringValue
+                    self.videoTitle = json["title"].stringValue
+                    self.videoDescription = json["description"].stringValue
                     self.loadVideo(self.youtubeId)
                     
                 }
@@ -149,18 +155,7 @@ class PlayVideoViewController: UIViewController {
         let videoEmbedString = "<html><head><style type=\"text/css\">body {background-color: transparent;color: white;}</style></head><body style=\"margin:0\"><iframe frameBorder=\"0\" height=\"" + String(describing: height) + "\" width=\"" + String(describing: width) + "\" src=\"http://www.youtube.com/embed/" + id + "?showinfo=0&modestbranding=1&frameborder=0&&playsinline=1&rel=0\"></iframe></body></html>"
         self.videoPlayer.loadHTMLString(videoEmbedString, baseURL: nil)
         
-        //load title and description
-        Alamofire.request("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=AIzaSyDd7fUh3e5ylq-0Wv92mkyxaXbm07lm1Fc").responseJSON { response in
-            let json = JSON(data: response.data!)
-
-            if let JSON = response.result.value {
-                if(json["items"].count > 0) {
-                    self.videoTitle = json["items"][0]["snippet"]["title"].stringValue
-                    self.videoDescription = json["items"][0]["snippet"]["description"].stringValue
-                    
-                }
-                
-            }
+       
             let videoInfoText:String = self.videoTitle + "\n\n" + self.videoDescription
             let infoTextSize = videoInfoText.characters.count
             let attributedText: NSMutableAttributedString = NSMutableAttributedString(string: videoInfoText)
@@ -169,9 +164,8 @@ class PlayVideoViewController: UIViewController {
             self.videoText.attributedText = attributedText
             self.videoText.isHidden = false
             self.save.isEnabled = true
-            HUD.hide()
-            self.firstLoad = false
-        }
+        
+        
     }
     @IBAction func saveVideo(_ sender: AnyObject) {
         if(self.videoTitle == "" && self.videoDescription == "") {
